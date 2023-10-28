@@ -1,0 +1,1 @@
+"use strict";Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});const e=require("react"),t=e.createContext();function a({children:o}){const[r,n]=e.useState("sad");return e.createElement(t.Provider,{value:{moodToday:r,setMoodToday:n}},o)}exports.AppContext=t;exports.AppContextProvider=a;
