@@ -1,15 +1,23 @@
-import { createContext, useState } from 'react';
-
-const AppContext = createContext();
-
-function AppContextProvider ({children}) {
-    const [moodToday, setMoodToday] = useState('sad');
-
-    return (
-        <AppContext.Provider value={{ moodToday, setMoodToday }}>
-            {children}
-        </AppContext.Provider>
-    );
+const CombineComponents = (...components) => {
+	return components.reduce(
+		(AccumulatedComponents, CurrentComponent) => {
+			return ({ children }) => {
+				return (
+					<AccumulatedComponents>
+						<CurrentComponent>{children}</CurrentComponent>
+					</AccumulatedComponents>
+				);
+			};
+		},
+		({ children }) => <>{children}</>
+	);
 };
 
-export {AppContextProvider, AppContext};
+import { TekaContextProvider } from "./TekaContext";
+import { MoodContextProvider } from "./MoodContext";
+
+const providers = [TekaContextProvider, MoodContextProvider];
+
+const AppContextProvider = CombineComponents(...providers);
+
+export {AppContextProvider};
