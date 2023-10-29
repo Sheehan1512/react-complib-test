@@ -10,7 +10,7 @@ export default defineConfig({
 		lib: {
 			name: 'Test React Component Library',
 			entry: {
-				appContext: './src/Context/AppContext.jsx'
+				context: './src/Context/context.js'
 			},
 			formats: ['cjs'],
 		},
