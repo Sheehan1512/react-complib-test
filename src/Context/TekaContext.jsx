@@ -3,10 +3,10 @@ import { createContext, useState } from 'react';
 const TekaContext = createContext();
 
 function TekaContextProvider ({children}) {
-    const [moodToday, setMoodToday] = useState('sad');
+    const [tekaAase, setTekaAase] = useState('nai');
 
     return (
-        <TekaContext.Provider value={{ moodToday, setMoodToday }}>
+        <TekaContext.Provider value={{ tekaAase, setTekaAase }}>
             {children}
         </TekaContext.Provider>
     );
